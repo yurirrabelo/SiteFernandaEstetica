@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import {
-  Phone,
+  MessageCircle as MessageCircleIcon,
   Mail,
   MapPin,
   Clock,
@@ -62,7 +62,7 @@ const contactInfo = [
     action: null,
   },
   {
-    icon: Phone,
+    icon: MessageCircleIcon,
     title: "WhatsApp",
     content: "(47) 99445-8005",
     action: "https://wa.me/5547994458005",

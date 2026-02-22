@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Instagram, Facebook, MessageCircle, MapPin, Clock } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -47,7 +47,7 @@ const Footer = () => {
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="WhatsApp"
               >
-                <Phone size={18} />
+                <MessageCircle size={18} />
               </a>
             </div>
           </div>
@@ -90,9 +90,11 @@ const Footer = () => {
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={18} className="text-primary flex-shrink-0" />
+                <MessageCircle size={18} className="text-primary flex-shrink-0" />
                 <a
                   href="https://wa.me/5547994458005"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-primary-foreground/70 hover:text-primary-foreground text-sm"
                 >
                   (47) 99445-8005
