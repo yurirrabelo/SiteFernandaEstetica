@@ -51,10 +51,10 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-2">
             <div className="flex flex-col">
               <span className="font-display text-2xl font-semibold text-primary">
-                Espaço Harmonia
+                Fernanda Concolatto
               </span>
               <span className="text-xs text-muted-foreground tracking-widest uppercase">
-                Estética & Bem-estar
+                Estética & Holística
               </span>
             </div>
           </Link>

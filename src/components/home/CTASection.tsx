@@ -40,8 +40,8 @@ const CTASection = () => {
           </h2>
 
           <p className="text-primary-foreground/80 text-lg mb-10 max-w-2xl mx-auto">
-            Agende sua avaliação gratuita e descubra os tratamentos ideais para
-            você. Nossa equipe está pronta para proporcionar uma experiência única.
+            Agende sua avaliação e descubra os tratamentos ideais para
+            você. Estou pronta para proporcionar uma experiência única de cuidado integral.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -13,11 +13,11 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Espaço Harmonia - Clínica de Estética"
-          className="w-full h-full object-cover"
-        />
+          <img
+            src={heroImage}
+            alt="Fernanda Concolatto - Estética & Holística"
+            className="w-full h-full object-cover"
+          />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/30" />
       </div>
 
@@ -54,9 +54,8 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg text-muted-foreground mb-8 leading-relaxed"
           >
-            Tratamentos exclusivos de estética e terapias holísticas que
-            harmonizam corpo e mente. Uma experiência premium de cuidado e
-            renovação.
+            Estética avançada com abordagem holística. Pós Operatório, Botox,
+            Beleza Facial e Corporal, Terapias. Cuidado integral para corpo e alma.
           </motion.p>
 
           <motion.div
@@ -96,7 +95,7 @@ const Hero = () => {
             {[
               { value: "500+", label: "Clientes Satisfeitas" },
               { value: "15+", label: "Tratamentos" },
-              { value: "8", label: "Anos de Experiência" },
+              { value: "12", label: "Anos de Experiência" },
             ].map((stat, index) => (
               <div key={index} className="text-center md:text-left">
                 <div className="text-2xl md:text-3xl font-display font-semibold text-primary">

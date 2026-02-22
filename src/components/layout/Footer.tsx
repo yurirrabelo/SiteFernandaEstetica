@@ -12,15 +12,14 @@ const Footer = () => {
           <div className="space-y-4">
             <div>
               <h3 className="font-display text-2xl font-semibold">
-                Espaço Harmonia
+                Fernanda Concolatto
               </h3>
               <p className="text-sm text-primary-foreground/60 tracking-widest uppercase">
-                Estética & Bem-estar
+                Estética & Holística
               </p>
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
-              Sua jornada de beleza e equilíbrio começa aqui. Tratamentos
-              personalizados para corpo e mente.
+              Há 12 anos transformando beleza, corpo e alma. Estética avançada com abordagem holística.
             </p>
             <div className="flex gap-4">
               <a
@@ -76,19 +75,10 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-primary-foreground/70 text-sm">
-                  Rua das Flores, 123
+                  Rua 248, 322, sala 205
                   <br />
-                  Jardim Primavera - São Paulo, SP
+                  Meia Praia - Itapema, SC
                 </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone size={18} className="text-primary flex-shrink-0" />
-                <a
-                  href="tel:+5511999999999"
-                  className="text-primary-foreground/70 hover:text-primary-foreground text-sm"
-                >
-                  (11) 99999-9999
-                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-primary flex-shrink-0" />
@@ -111,18 +101,10 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Clock size={18} className="text-primary mt-0.5 flex-shrink-0" />
                 <div className="text-primary-foreground/70 text-sm">
-                  <p className="font-medium text-primary-foreground/90">
+                   <p className="font-medium text-primary-foreground/90">
                     Segunda a Sexta
                   </p>
-                  <p>09:00 - 19:00</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3 ml-7">
-                <div className="text-primary-foreground/70 text-sm">
-                  <p className="font-medium text-primary-foreground/90">
-                    Sábado
-                  </p>
-                  <p>09:00 - 14:00</p>
+                  <p>Horário agendado</p>
                 </div>
               </li>
             </ul>
@@ -135,7 +117,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-primary-foreground/50 text-sm text-center md:text-left">
-              © {currentYear} Espaço Harmonia. Todos os direitos reservados.
+              © {currentYear} Fernanda Concolatto. Todos os direitos reservados.
             </p>
             <div className="flex gap-6">
               <a
