@@ -23,7 +23,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/fer.esteticaholistica/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -32,13 +32,22 @@ const Footer = () => {
                 <Instagram size={18} />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/fer.esteticaholistica/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook size={18} />
+              </a>
+              <a
+                href="https://wa.me/5547994458005"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                aria-label="WhatsApp"
+              >
+                <Phone size={18} />
               </a>
             </div>
           </div>
@@ -77,16 +86,16 @@ const Footer = () => {
                 <span className="text-primary-foreground/70 text-sm">
                   Rua 248, 322, sala 205
                   <br />
-                  Meia Praia - Itapema, SC
+                  Andorinha - Itapema, SC, 88220
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={18} className="text-primary flex-shrink-0" />
+                <Phone size={18} className="text-primary flex-shrink-0" />
                 <a
-                  href="mailto:contato@espacoharmonia.com.br"
+                  href="https://wa.me/5547994458005"
                   className="text-primary-foreground/70 hover:text-primary-foreground text-sm"
                 >
-                  contato@espacoharmonia.com.br
+                  (47) 99445-8005
                 </a>
               </li>
             </ul>
