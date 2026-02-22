@@ -114,10 +114,6 @@ const Contato = () => {
     }, 3000);
   };
 
-  const openWhatsApp = () => {
-    const message = encodeURIComponent("Olá! Gostaria de mais informações.");
-    window.open(`https://wa.me/5547994458005?text=${message}`, "_blank");
-  };
 
   return (
     <Layout>
@@ -220,7 +216,7 @@ const Contato = () => {
                             <FormLabel>WhatsApp</FormLabel>
                             <FormControl>
                               <Input
-                                placeholder="(11) 99999-9999"
+                                placeholder="(47) 99999-9999"
                                 {...field}
                                 className="h-12"
                               />
@@ -305,24 +301,6 @@ const Contato = () => {
                     </div>
                   </motion.div>
                 ))}
-              </div>
-
-              {/* Quick WhatsApp */}
-              <div className="bg-muted/50 rounded-2xl p-6">
-                <h3 className="font-display font-semibold text-foreground mb-3">
-                  Atendimento Rápido
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Prefere falar diretamente conosco? Clique no botão abaixo para
-                  iniciar uma conversa no WhatsApp.
-                </p>
-                <Button
-                  onClick={openWhatsApp}
-                  className="w-full bg-[#25D366] hover:bg-[#20BD5A]"
-                >
-                  <MessageCircle size={18} className="mr-2" />
-                  Conversar no WhatsApp
-                </Button>
               </div>
 
               {/* Social Media */}
