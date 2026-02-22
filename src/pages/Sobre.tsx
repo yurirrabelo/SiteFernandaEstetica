@@ -39,12 +39,11 @@ const Sobre = () => {
             className="max-w-3xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-5xl font-display font-semibold text-foreground mb-6">
-              Sobre o <span className="text-gradient-primary">Espaço Harmonia</span>
+              Sobre <span className="text-gradient-primary">Fernanda Concolatto</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Há 8 anos transformando vidas através do cuidado com a beleza e o
-              bem-estar. Nossa missão é proporcionar experiências que elevem sua
-              autoestima e qualidade de vida.
+              Há 12 anos transformando beleza, corpo e alma. Estética avançada
+              com abordagem holística e cuidado integral.
             </p>
           </motion.div>
         </div>
@@ -64,24 +63,29 @@ const Sobre = () => {
                 Nossa História
               </span>
               <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground">
-                Uma Jornada de Paixão pelo Cuidado
+                Sou a Fer 💫
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  O Espaço Harmonia nasceu do sonho de criar um ambiente onde a
-                  estética e as terapias holísticas se complementassem para
-                  oferecer um cuidado verdadeiramente integral.
+                  Paranaense de alma curiosa e coração aquariano. Há 18 anos
+                  escolhi a estética como caminho, e desde então sigo me
+                  aperfeiçoando com amor e propósito.
                 </p>
                 <p>
-                  Fundada em 2016 pela Dra. Ana Paula Mendes, especialista em
-                  estética e terapeuta holística, nossa clínica se tornou
-                  referência em tratamentos que unem o melhor da ciência com a
-                  sabedoria das práticas ancestrais.
+                  Comecei minha jornada em Curitiba, em clínicas de referência, e
+                  quando voltei para SC, senti que era hora de criar algo meu.
+                  Assim nasceu minha própria clínica, unindo conhecimento técnico
+                  com o poder das terapias e do autodesenvolvimento 🌿💆‍♀️
                 </p>
                 <p>
-                  Hoje, contamos com uma equipe multidisciplinar comprometida em
-                  proporcionar experiências transformadoras, sempre com
-                  acolhimento, profissionalismo e resultados excepcionais.
+                  Amo o que faço e acredito no cuidado integral — físico,
+                  emocional, mental e espiritual. Sou apaixonada por animais
+                  (tenho uma cachorrinha chamada Loba 🐶), por plantas, cachoeiras
+                  e tudo que me conecta com a natureza e a paz interior 🌺💧
+                </p>
+                <p>
+                  Dizem que tenho mãos de fada... mas o que me move mesmo é o
+                  coração 💚
                 </p>
               </div>
             </motion.div>
@@ -98,11 +102,11 @@ const Sobre = () => {
                 className="rounded-3xl shadow-floating w-full"
               />
               <div className="absolute -bottom-8 -left-8 bg-card p-6 rounded-2xl shadow-elevated max-w-xs">
-                <div className="text-3xl font-display font-semibold text-primary mb-1">
-                  8 Anos
+              <div className="text-3xl font-display font-semibold text-primary mb-1">
+                  12 Anos
                 </div>
                 <p className="text-muted-foreground text-sm">
-                  Cuidando da beleza e bem-estar de nossas clientes
+                  Transformando beleza, corpo e alma
                 </p>
               </div>
             </motion.div>
@@ -179,29 +183,32 @@ const Sobre = () => {
                 Nossa Fundadora
               </span>
               <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground">
-                Dra. Ana Paula Mendes
+                Fernanda Tagliari Concolatto
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Esteticista formada há 15 anos, com especializações em
-                  Dermocosmetologia, Massoterapia e Terapias Holísticas. Sua
-                  paixão pelo cuidado integral a levou a criar um espaço único.
+                  Esteticista há 18 anos, com especializações em estética
+                  avançada e terapias holísticas. Sua paixão pelo cuidado
+                  integral a levou a criar um espaço único em Itapema.
                 </p>
                 <p>
-                  "Acredito que a verdadeira beleza nasce quando cuidamos do
-                  corpo e da alma em harmonia. Cada tratamento que oferecemos é
-                  uma oportunidade de reconexão consigo mesma."
+                  "Acredito no cuidado integral — físico, emocional, mental e
+                  espiritual. Cada tratamento é uma oportunidade de reconexão
+                  consigo mesma." ✨
                 </p>
               </div>
               <div className="flex flex-wrap gap-4 pt-4">
                 <div className="bg-primary/10 px-4 py-2 rounded-full text-primary text-sm font-medium">
-                  Dermocosmetologia
+                  Pós Operatório
                 </div>
                 <div className="bg-secondary/10 px-4 py-2 rounded-full text-secondary text-sm font-medium">
-                  Massoterapia
+                  Botox
                 </div>
                 <div className="bg-accent/10 px-4 py-2 rounded-full text-accent text-sm font-medium">
-                  Terapias Holísticas
+                  Beleza Facial e Corporal
+                </div>
+                <div className="bg-primary/10 px-4 py-2 rounded-full text-primary text-sm font-medium">
+                  Terapias
                 </div>
               </div>
             </motion.div>
