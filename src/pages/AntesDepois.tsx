@@ -181,39 +181,6 @@ const AntesDepois = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-center"
-          >
-            <h2 className="text-3xl font-display font-semibold text-foreground mb-4">
-              Quer Resultados como Esses?
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Agende sua avaliação gratuita e descubra o tratamento ideal para
-              você. Nossa equipe vai criar um protocolo personalizado para suas
-              necessidades.
-            </p>
-            <Button
-              onClick={() => {
-                const message = encodeURIComponent(
-                  "Olá! Gostaria de agendar uma avaliação para conhecer os tratamentos."
-                );
-                window.open(`https://wa.me/5547994458005?text=${message}`, "_blank");
-              }}
-              size="lg"
-              className="gradient-primary shadow-primary"
-            >
-              Agendar Avaliação Gratuita
-              <ArrowRight size={18} className="ml-2" />
-            </Button>
-          </motion.div>
-        </div>
-      </section>
     </Layout>
   );
 };
