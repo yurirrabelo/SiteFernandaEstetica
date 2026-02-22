@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageCircle, Phone, Calendar } from "lucide-react";
+import { MessageCircle, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import treatmentRoom from "@/assets/treatment-room.jpg";
 
@@ -44,7 +44,7 @@ const CTASection = () => {
             você. Estou pronta para proporcionar uma experiência única de cuidado integral.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Button
               onClick={openWhatsApp}
               size="lg"
@@ -52,18 +52,6 @@ const CTASection = () => {
             >
               <MessageCircle size={20} className="mr-2" />
               Agendar via WhatsApp
-            </Button>
-
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-            >
-              <a href="tel:+5547994458005">
-                <Phone size={20} className="mr-2" />
-                (47) 99445-8005
-              </a>
             </Button>
           </div>
 
