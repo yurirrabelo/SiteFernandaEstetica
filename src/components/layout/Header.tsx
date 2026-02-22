@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logoFer from "@/assets/logo-fer.png";
 
 const navLinks = [
   { href: "/", label: "Início" },
@@ -33,7 +34,7 @@ const Header = () => {
 
   const openWhatsApp = () => {
     const message = encodeURIComponent("Olá! Gostaria de agendar um horário.");
-    window.open(`https://wa.me/5511999999999?text=${message}`, "_blank");
+    window.open(`https://wa.me/5547994458005?text=${message}`, "_blank");
   };
 
   return (
@@ -49,13 +50,16 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex flex-col">
-              <span className="font-display text-2xl font-semibold text-primary">
-                Fernanda Concolatto
-              </span>
-              <span className="text-xs text-muted-foreground tracking-widest uppercase">
-                Estética & Holística
-              </span>
+            <div className="flex items-center gap-3">
+              <img src={logoFer} alt="Logo Fernanda Concolatto" className="w-10 h-10 rounded-full object-cover" />
+              <div className="flex flex-col">
+                <span className="font-display text-2xl font-semibold text-primary">
+                  Fernanda Concolatto
+                </span>
+                <span className="text-xs text-muted-foreground tracking-widest uppercase">
+                  Estética & Holística
+                </span>
+              </div>
             </div>
           </Link>
 

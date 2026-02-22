@@ -6,7 +6,7 @@ import treatmentRoom from "@/assets/treatment-room.jpg";
 const CTASection = () => {
   const openWhatsApp = () => {
     const message = encodeURIComponent("Olá! Gostaria de agendar um horário.");
-    window.open(`https://wa.me/5511999999999?text=${message}`, "_blank");
+    window.open(`https://wa.me/5547994458005?text=${message}`, "_blank");
   };
 
   return (
@@ -60,9 +60,9 @@ const CTASection = () => {
               variant="outline"
               className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
             >
-              <a href="tel:+5511999999999">
+              <a href="tel:+5547994458005">
                 <Phone size={20} className="mr-2" />
-                (11) 99999-9999
+                (47) 99445-8005
               </a>
             </Button>
           </div>

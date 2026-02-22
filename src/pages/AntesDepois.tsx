@@ -56,7 +56,7 @@ const AntesDepois = () => {
     const message = encodeURIComponent(
       `Olá! Vi os resultados do tratamento "${treatmentName}" e gostaria de saber mais.`
     );
-    window.open(`https://wa.me/5511999999999?text=${message}`, "_blank");
+    window.open(`https://wa.me/5547994458005?text=${message}`, "_blank");
   };
 
   return (
@@ -203,7 +203,7 @@ const AntesDepois = () => {
                 const message = encodeURIComponent(
                   "Olá! Gostaria de agendar uma avaliação para conhecer os tratamentos."
                 );
-                window.open(`https://wa.me/5511999999999?text=${message}`, "_blank");
+                window.open(`https://wa.me/5547994458005?text=${message}`, "_blank");
               }}
               size="lg"
               className="gradient-primary shadow-primary"

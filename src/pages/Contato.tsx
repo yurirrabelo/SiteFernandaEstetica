@@ -58,25 +58,19 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Endereço",
-    content: "Rua das Flores, 123\nJardim Primavera - São Paulo, SP",
+    content: "Rua 248, 322, sala 205\nAndorinha - Itapema, SC, 88220",
     action: null,
   },
   {
     icon: Phone,
-    title: "Telefone",
-    content: "(11) 99999-9999",
-    action: "tel:+5511999999999",
-  },
-  {
-    icon: Mail,
-    title: "E-mail",
-    content: "contato@espacoharmonia.com.br",
-    action: "mailto:contato@espacoharmonia.com.br",
+    title: "WhatsApp",
+    content: "(47) 99445-8005",
+    action: "https://wa.me/5547994458005",
   },
   {
     icon: Clock,
     title: "Horário",
-    content: "Seg a Sex: 09h - 19h\nSábado: 09h - 14h",
+    content: "Segunda a Sexta\nHorário agendado",
     action: null,
   },
 ];
@@ -105,7 +99,7 @@ const Contato = () => {
     );
 
     // Open WhatsApp
-    window.open(`https://wa.me/5511999999999?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/5547994458005?text=${whatsappMessage}`, "_blank");
 
     setIsSubmitted(true);
     toast({
@@ -122,7 +116,7 @@ const Contato = () => {
 
   const openWhatsApp = () => {
     const message = encodeURIComponent("Olá! Gostaria de mais informações.");
-    window.open(`https://wa.me/5511999999999?text=${message}`, "_blank");
+    window.open(`https://wa.me/5547994458005?text=${message}`, "_blank");
   };
 
   return (
@@ -338,7 +332,7 @@ const Contato = () => {
                 </h3>
                 <div className="flex gap-4">
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/fer.esteticaholistica/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-primary-foreground hover:scale-105 transition-transform"
@@ -346,7 +340,7 @@ const Contato = () => {
                     <Instagram size={22} />
                   </a>
                   <a
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/fer.esteticaholistica/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-[#1877F2] flex items-center justify-center text-primary-foreground hover:scale-105 transition-transform"
@@ -376,7 +370,7 @@ const Contato = () => {
 
           <div className="bg-card rounded-2xl overflow-hidden shadow-elevated h-96">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1598430654!2d-46.6565!3d-23.5617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzQyLjEiUyA0NsKwMzknMjMuNCJX!5e0!3m2!1spt-BR!2sbr!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3555.0!2d-48.6150!3d-27.0900!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSXRhcGVtYQ!5e0!3m2!1spt-BR!2sbr!4v1"
               width="100%"
               height="100%"
               style={{ border: 0 }}
