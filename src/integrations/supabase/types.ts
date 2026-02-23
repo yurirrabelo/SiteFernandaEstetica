@@ -60,6 +60,7 @@ export type Database = {
           id: string
           image_url: string | null
           label: string
+          object_position: string
           section: string
           sort_order: number
           updated_at: string
@@ -70,6 +71,7 @@ export type Database = {
           id?: string
           image_url?: string | null
           label?: string
+          object_position?: string
           section: string
           sort_order?: number
           updated_at?: string
@@ -80,6 +82,7 @@ export type Database = {
           id?: string
           image_url?: string | null
           label?: string
+          object_position?: string
           section?: string
           sort_order?: number
           updated_at?: string
