@@ -42,12 +42,8 @@ const AdminLogin = () => {
                 <div className="w-16 h-16 rounded-full gradient-primary flex items-center justify-center mx-auto mb-4">
                   <Lock className="text-primary-foreground" size={28} />
                 </div>
-                <h1 className="text-2xl font-display font-semibold text-foreground">
-                  Área Administrativa
-                </h1>
-                <p className="text-muted-foreground text-sm mt-2">
-                  Acesso restrito para gerenciamento do site
-                </p>
+                <h1 className="text-2xl font-display font-semibold text-foreground">Área Administrativa</h1>
+                <p className="text-muted-foreground text-sm mt-2">Acesso restrito para gerenciamento do site</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -81,16 +77,14 @@ const AdminLogin = () => {
                     />
                   </div>
                   <a
-                    href="mailto:fertoconcolatto@gmail.com?subject=Recuperação de senha - Site Fernanda Estética&body=Olá, preciso recuperar minha senha de acesso ao painel administrativo do site."
+                    href="mailto:yuri.pacher@gmail.com?subject=Recuperação de senha - Site Fernanda Estética&body=Olá, preciso recuperar minha senha de acesso ao painel administrativo do site."
                     className="text-sm text-primary hover:underline block text-right mt-1"
                   >
                     Esqueci minha senha
                   </a>
                 </div>
 
-                {error && (
-                  <p className="text-destructive text-sm text-center">{error}</p>
-                )}
+                {error && <p className="text-destructive text-sm text-center">{error}</p>}
 
                 <Button type="submit" disabled={loading} className="w-full gradient-primary shadow-primary h-12">
                   {loading ? "Entrando..." : "Entrar"}
