@@ -31,8 +31,7 @@ const Testimonials = () => {
   if (testimonials.length === 0) return null;
 
   const next = () => setCurrent((prev) => (prev + 1) % testimonials.length);
-  const prev = () =>
-    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const prev = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
     <section className="py-24 bg-muted/30 overflow-hidden">
@@ -48,12 +47,11 @@ const Testimonials = () => {
             <Star size={16} className="fill-accent" />
             Depoimentos
           </span>
+
           <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground mb-4">
             O que os clientes dizem
           </h2>
-          <p className="text-muted-foreground">
-            A satisfação das clientes é a maior recompensa.
-          </p>
+          <p className="text-muted-foreground">A satisfação de nossas clientes é nossa maior recompensa.</p>
         </motion.div>
 
         {/* Slider */}
@@ -81,15 +79,16 @@ const Testimonials = () => {
 
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center text-primary-foreground font-semibold">
-                  {testimonials[current].avatar || testimonials[current].name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+                  {testimonials[current].avatar ||
+                    testimonials[current].name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")
+                      .slice(0, 2)}
                 </div>
                 <div>
-                  <div className="font-display font-semibold text-foreground">
-                    {testimonials[current].name}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {testimonials[current].role}
-                  </div>
+                  <div className="font-display font-semibold text-foreground">{testimonials[current].name}</div>
+                  <div className="text-sm text-muted-foreground">{testimonials[current].role}</div>
                 </div>
               </div>
             </motion.div>
@@ -97,7 +96,12 @@ const Testimonials = () => {
 
           {/* Navigation */}
           <div className="flex items-center justify-center gap-4 mt-8">
-            <Button variant="outline" size="icon" onClick={prev} className="rounded-full border-primary/30 hover:bg-primary/5">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={prev}
+              className="rounded-full border-primary/30 hover:bg-primary/5"
+            >
               <ChevronLeft size={20} />
             </Button>
             <div className="flex gap-2">
@@ -111,7 +115,12 @@ const Testimonials = () => {
                 />
               ))}
             </div>
-            <Button variant="outline" size="icon" onClick={next} className="rounded-full border-primary/30 hover:bg-primary/5">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={next}
+              className="rounded-full border-primary/30 hover:bg-primary/5"
+            >
               <ChevronRight size={20} />
             </Button>
           </div>
