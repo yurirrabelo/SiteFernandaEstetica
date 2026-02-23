@@ -80,6 +80,12 @@ const AdminLogin = () => {
                       required
                     />
                   </div>
+                  <a
+                    href="mailto:fertoconcolatto@gmail.com?subject=Recuperação de senha - Site Fernanda Estética&body=Olá, preciso recuperar minha senha de acesso ao painel administrativo do site."
+                    className="text-sm text-primary hover:underline block text-right mt-1"
+                  >
+                    Esqueci minha senha
+                  </a>
                 </div>
 
                 {error && (
