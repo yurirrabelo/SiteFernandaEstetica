@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Pencil, Save, ArrowLeft, Upload } from "lucide-react";
+import { Pencil, Save, ArrowLeft, Upload, Move } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { toast } from "sonner";
 
@@ -24,6 +24,85 @@ const sectionLabels: Record<string, string> = {
   hero: "Página Inicial - Hero",
   about_history: "Sobre Nós - Nossa História",
   about_founder: "Sobre Nós - Fundadora",
+};
+// Parse "X% Y%" back to numbers
+const parsePosition = (pos: string): { x: number; y: number } => {
+  const match = pos.match(/([\d.]+)%\s+([\d.]+)%/);
+  if (match) return { x: parseFloat(match[1]), y: parseFloat(match[2]) };
+  // Handle named positions
+  const map: Record<string, { x: number; y: number }> = {
+    "top left": { x: 0, y: 0 }, top: { x: 50, y: 0 }, "top right": { x: 100, y: 0 },
+    left: { x: 0, y: 50 }, center: { x: 50, y: 50 }, right: { x: 100, y: 50 },
+    "bottom left": { x: 0, y: 100 }, bottom: { x: 50, y: 100 }, "bottom right": { x: 100, y: 100 },
+  };
+  return map[pos] || { x: 50, y: 50 };
+};
+
+const FocalPointPicker = ({ imageUrl, position, onChange }: { imageUrl: string; position: string; onChange: (pos: string) => void }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dragging, setDragging] = useState(false);
+  const point = parsePosition(position);
+
+  const updatePosition = useCallback((e: React.MouseEvent | React.TouchEvent) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+    const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
+    const x = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
+    const y = Math.max(0, Math.min(100, ((clientY - rect.top) / rect.height) * 100));
+    onChange(`${x.toFixed(0)}% ${y.toFixed(0)}%`);
+  }, [onChange]);
+
+  const handlePointerDown = (e: React.MouseEvent | React.TouchEvent) => {
+    setDragging(true);
+    updatePosition(e);
+  };
+
+  const handlePointerMove = (e: React.MouseEvent | React.TouchEvent) => {
+    if (dragging) updatePosition(e);
+  };
+
+  const handlePointerUp = () => setDragging(false);
+
+  return (
+    <div className="space-y-2">
+      {/* Full image with focal point marker */}
+      <div
+        ref={containerRef}
+        className="relative w-full rounded-lg overflow-hidden cursor-crosshair border border-border select-none"
+        style={{ maxHeight: "300px" }}
+        onMouseDown={handlePointerDown}
+        onMouseMove={handlePointerMove}
+        onMouseUp={handlePointerUp}
+        onMouseLeave={handlePointerUp}
+        onTouchStart={handlePointerDown}
+        onTouchMove={handlePointerMove}
+        onTouchEnd={handlePointerUp}
+      >
+        <img src={imageUrl} alt="Ajustar posição" className="w-full object-contain" draggable={false} />
+        {/* Focal point indicator */}
+        <div
+          className="absolute w-6 h-6 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          style={{ left: `${point.x}%`, top: `${point.y}%` }}
+        >
+          <div className="w-full h-full rounded-full border-2 border-primary bg-primary/30 shadow-lg" />
+          <div className="absolute inset-0 w-full h-full rounded-full animate-ping border border-primary opacity-50" />
+        </div>
+        {/* Crosshair lines */}
+        <div className="absolute inset-0 pointer-events-none" style={{ left: `${point.x}%` }}>
+          <div className="absolute w-px h-full bg-primary/30" style={{ left: 0 }} />
+        </div>
+        <div className="absolute inset-0 pointer-events-none" style={{ top: `${point.y}%` }}>
+          <div className="absolute w-full h-px bg-primary/30" style={{ top: 0 }} />
+        </div>
+      </div>
+      {/* Preview of how it will look cropped */}
+      <div>
+        <p className="text-xs text-muted-foreground mb-1 flex items-center gap-1"><Move size={12} /> Preview do enquadramento no site:</p>
+        <img src={imageUrl} alt="Preview enquadramento" className="w-full h-32 object-cover rounded-lg border border-border" style={{ objectPosition: position }} />
+      </div>
+    </div>
+  );
 };
 
 const AdminImagens = () => {
@@ -121,42 +200,19 @@ const AdminImagens = () => {
                 <Input value={editing.alt_text} onChange={e => setEditing({ ...editing, alt_text: e.target.value })} className="mt-1" />
               </div>
               <div>
-                <Label>Imagem</Label>
+                <Label>Imagem <span className="text-muted-foreground font-normal text-xs ml-1">— clique ou arraste na imagem para ajustar o enquadramento</span></Label>
                 <div className="mt-1 space-y-2">
                   {editing.image_url && (
-                    <div className="relative">
-                      <img src={editing.image_url} alt="Preview" className="w-full h-48 object-cover rounded-lg" style={{ objectPosition: editing.object_position }} />
-                    </div>
+                    <FocalPointPicker
+                      imageUrl={editing.image_url}
+                      position={editing.object_position}
+                      onChange={(pos) => setEditing({ ...editing, object_position: pos })}
+                    />
                   )}
                   <label className="flex items-center gap-2 cursor-pointer bg-muted hover:bg-muted/80 rounded-lg px-4 py-3 text-sm">
                     <Upload size={16} />{uploading ? "Enviando..." : "Enviar nova imagem"}
                     <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" disabled={uploading} />
                   </label>
-                </div>
-              </div>
-              <div>
-                <Label>Posição da imagem</Label>
-                <div className="flex flex-wrap gap-2 mt-1">
-                  {[
-                    { value: "top", label: "Topo" },
-                    { value: "center", label: "Centro" },
-                    { value: "bottom", label: "Baixo" },
-                    { value: "left", label: "Esquerda" },
-                    { value: "right", label: "Direita" },
-                    { value: "top left", label: "Topo Esq." },
-                    { value: "top right", label: "Topo Dir." },
-                    { value: "bottom left", label: "Baixo Esq." },
-                    { value: "bottom right", label: "Baixo Dir." },
-                  ].map(pos => (
-                    <button
-                      key={pos.value}
-                      type="button"
-                      onClick={() => setEditing({ ...editing, object_position: pos.value })}
-                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${editing.object_position === pos.value ? "gradient-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}
-                    >
-                      {pos.label}
-                    </button>
-                  ))}
                 </div>
               </div>
               <div className="flex gap-2 pt-2">
