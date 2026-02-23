@@ -74,7 +74,7 @@ const Hero = () => {
               <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="outline" size="lg" asChild className="border-primary/30 hover:bg-primary/5">
-              <a href="#tratamentos">Conheça nossos Tratamentos</a>
+              <a href="#tratamentos">Conheça os Tratamentos</a>
             </Button>
           </motion.div>
 

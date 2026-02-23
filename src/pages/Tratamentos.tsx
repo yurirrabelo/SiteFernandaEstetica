@@ -96,7 +96,7 @@ const Tratamentos = () => {
             className="max-w-3xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-5xl font-display font-semibold text-foreground mb-6">
-              Nossos <span className="text-gradient-primary">Tratamentos</span>
+              <span className="text-gradient-primary">Tratamentos</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Conheça nossa linha completa de tratamentos estéticos e terapias

@@ -24,9 +24,9 @@ const sectionLabels: Record<string, string> = {
   hero: "Página Inicial - Hero",
   about_history: "Sobre Nós - Nossa História",
   about_founder: "Sobre Nós - Fundadora",
-  servicos_facial: "Nossos Serviços - Tratamentos Faciais",
-  servicos_corporal: "Nossos Serviços - Tratamentos Corporais",
-  servicos_holistico: "Nossos Serviços - Terapias Holísticas",
+  servicos_facial: "Serviços - Tratamentos Faciais",
+  servicos_corporal: "Serviços - Tratamentos Corporais",
+  servicos_holistico: "Serviços - Terapias Holísticas",
 };
 // Parse "X% Y%" back to numbers
 const parsePosition = (pos: string): { x: number; y: number } => {

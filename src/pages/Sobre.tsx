@@ -117,7 +117,7 @@ const Sobre = () => {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto mb-16"
           >
-            <span className="text-secondary text-sm font-medium uppercase tracking-wider">Nossos Valores</span>
+            <span className="text-secondary text-sm font-medium uppercase tracking-wider">Valores</span>
             <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground mt-4">O que nos Move</h2>
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
