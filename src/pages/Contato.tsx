@@ -17,39 +17,20 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/layout/Layout";
 
 const contactSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(2, "Nome deve ter pelo menos 2 caracteres")
-    .max(100, "Nome muito longo"),
-  email: z
-    .string()
-    .trim()
-    .email("E-mail inválido")
-    .max(255, "E-mail muito longo"),
+  name: z.string().trim().min(2, "Nome deve ter pelo menos 2 caracteres").max(100, "Nome muito longo"),
+  email: z.string().trim().email("E-mail inválido").max(255, "E-mail muito longo"),
   whatsapp: z
     .string()
     .trim()
     .min(10, "WhatsApp inválido")
     .max(20, "WhatsApp muito longo")
     .regex(/^[\d\s()+-]+$/, "Formato de telefone inválido"),
-  message: z
-    .string()
-    .trim()
-    .min(10, "Mensagem deve ter pelo menos 10 caracteres")
-    .max(1000, "Mensagem muito longa"),
+  message: z.string().trim().min(10, "Mensagem deve ter pelo menos 10 caracteres").max(1000, "Mensagem muito longa"),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -58,14 +39,15 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Endereço",
-    content: "Rua 248, 322, sala 205\nAndorinha - Itapema, SC, 88220",
+    content: "Rua 248, 322, sala 205\nMeia Praia - Itapema, SC, 88220",
     action: null,
   },
   {
     icon: MessageCircleIcon,
     title: "WhatsApp",
     content: "(47) 99944-5800",
-    action: "https://wa.me/5547999445800?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20tratamentos.",
+    action:
+      "https://wa.me/5547999445800?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20tratamentos.",
   },
   {
     icon: Clock,
@@ -95,7 +77,7 @@ const Contato = () => {
       `Olá! Sou ${data.name}.\n\n` +
         `E-mail: ${data.email}\n` +
         `WhatsApp: ${data.whatsapp}\n\n` +
-        `Mensagem: ${data.message}`
+        `Mensagem: ${data.message}`,
     );
 
     // Open WhatsApp
@@ -114,7 +96,6 @@ const Contato = () => {
     }, 3000);
   };
 
-
   return (
     <Layout>
       {/* Hero Section */}
@@ -129,8 +110,8 @@ const Contato = () => {
               Entre em <span className="text-gradient-primary">Contato</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Estamos prontos para atender você. Entre em contato pelo WhatsApp,
-              telefone ou preencha o formulário abaixo.
+              Estamos prontos para atender você. Entre em contato pelo WhatsApp, telefone ou preencha o formulário
+              abaixo.
             </p>
           </motion.div>
         </div>
@@ -141,14 +122,8 @@ const Contato = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-2xl font-display font-semibold text-foreground mb-6">
-                Envie sua Mensagem
-              </h2>
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <h2 className="text-2xl font-display font-semibold text-foreground mb-6">Envie sua Mensagem</h2>
 
               {isSubmitted ? (
                 <motion.div
@@ -157,19 +132,12 @@ const Contato = () => {
                   className="bg-secondary/10 rounded-2xl p-8 text-center"
                 >
                   <CheckCircle size={48} className="text-secondary mx-auto mb-4" />
-                  <h3 className="text-xl font-display font-semibold text-foreground mb-2">
-                    Mensagem Enviada!
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Você será redirecionado para o WhatsApp.
-                  </p>
+                  <h3 className="text-xl font-display font-semibold text-foreground mb-2">Mensagem Enviada!</h3>
+                  <p className="text-muted-foreground">Você será redirecionado para o WhatsApp.</p>
                 </motion.div>
               ) : (
                 <Form {...form}>
-                  <form
-                    onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-6"
-                  >
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <FormField
                       control={form.control}
                       name="name"
@@ -177,11 +145,7 @@ const Contato = () => {
                         <FormItem>
                           <FormLabel>Nome Completo</FormLabel>
                           <FormControl>
-                            <Input
-                              placeholder="Seu nome"
-                              {...field}
-                              className="h-12"
-                            />
+                            <Input placeholder="Seu nome" {...field} className="h-12" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -196,12 +160,7 @@ const Contato = () => {
                           <FormItem>
                             <FormLabel>E-mail</FormLabel>
                             <FormControl>
-                              <Input
-                                type="email"
-                                placeholder="seu@email.com"
-                                {...field}
-                                className="h-12"
-                              />
+                              <Input type="email" placeholder="seu@email.com" {...field} className="h-12" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -215,11 +174,7 @@ const Contato = () => {
                           <FormItem>
                             <FormLabel>WhatsApp</FormLabel>
                             <FormControl>
-                              <Input
-                                placeholder="(47) 99999-9999"
-                                {...field}
-                                className="h-12"
-                              />
+                              <Input placeholder="(47) 99999-9999" {...field} className="h-12" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -245,11 +200,7 @@ const Contato = () => {
                       )}
                     />
 
-                    <Button
-                      type="submit"
-                      size="lg"
-                      className="w-full gradient-primary shadow-primary"
-                    >
+                    <Button type="submit" size="lg" className="w-full gradient-primary shadow-primary">
                       <Send size={18} className="mr-2" />
                       Enviar Mensagem
                     </Button>
@@ -265,9 +216,7 @@ const Contato = () => {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <h2 className="text-2xl font-display font-semibold text-foreground mb-6">
-                Informações de Contato
-              </h2>
+              <h2 className="text-2xl font-display font-semibold text-foreground mb-6">Informações de Contato</h2>
 
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
@@ -283,9 +232,7 @@ const Contato = () => {
                       <info.icon size={20} className="text-primary-foreground" />
                     </div>
                     <div>
-                      <h3 className="font-medium text-foreground mb-1">
-                        {info.title}
-                      </h3>
+                      <h3 className="font-medium text-foreground mb-1">{info.title}</h3>
                       {info.action ? (
                         <a
                           href={info.action}
@@ -294,9 +241,7 @@ const Contato = () => {
                           {info.content}
                         </a>
                       ) : (
-                        <p className="text-muted-foreground whitespace-pre-line">
-                          {info.content}
-                        </p>
+                        <p className="text-muted-foreground whitespace-pre-line">{info.content}</p>
                       )}
                     </div>
                   </motion.div>
@@ -305,9 +250,7 @@ const Contato = () => {
 
               {/* Social Media */}
               <div>
-                <h3 className="font-display font-semibold text-foreground mb-4">
-                  Redes Sociais
-                </h3>
+                <h3 className="font-display font-semibold text-foreground mb-4">Redes Sociais</h3>
                 <div className="flex gap-4">
                   <a
                     href="https://www.instagram.com/fer.esteticaholistica/"
@@ -341,9 +284,7 @@ const Contato = () => {
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <h2 className="text-2xl font-display font-semibold text-foreground">
-              Nossa Localização
-            </h2>
+            <h2 className="text-2xl font-display font-semibold text-foreground">Nossa Localização</h2>
           </motion.div>
 
           <div className="bg-card rounded-2xl overflow-hidden shadow-elevated h-96">
