@@ -11,12 +11,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div>
-              <h3 className="font-display text-2xl font-semibold">
-                Fernanda Concolatto
-              </h3>
-              <p className="text-sm text-primary-foreground/60 tracking-widest uppercase">
-                Estética & Holística
-              </p>
+              <h3 className="font-display text-2xl font-semibold">Fernanda Concolatto</h3>
+              <p className="text-sm text-primary-foreground/60 tracking-widest uppercase">Estética & Holística</p>
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
               Há 12 anos transformando beleza, corpo e alma. Estética avançada com abordagem holística.
@@ -54,9 +50,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display text-lg font-medium mb-6">
-              Links Rápidos
-            </h4>
+            <h4 className="font-display text-lg font-medium mb-6">Links Rápidos</h4>
             <ul className="space-y-3">
               {[
                 { href: "/", label: "Início" },
@@ -86,18 +80,18 @@ const Footer = () => {
                 <span className="text-primary-foreground/70 text-sm">
                   Rua 248, 322, sala 205
                   <br />
-                  Andorinha - Itapema, SC, 88220
+                  Meia Praia - Itapema, SC, 88220-000
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <MessageCircle size={18} className="text-primary flex-shrink-0" />
                 <a
-                  href="https://wa.me/5547994458005"
+                  href="https://wa.me/5547999445800"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-foreground/70 hover:text-primary-foreground text-sm"
                 >
-                  (47) 99445-8005
+                  (47) 99944-5800
                 </a>
               </li>
             </ul>
@@ -105,16 +99,12 @@ const Footer = () => {
 
           {/* Hours */}
           <div>
-            <h4 className="font-display text-lg font-medium mb-6">
-              Horário de Atendimento
-            </h4>
+            <h4 className="font-display text-lg font-medium mb-6">Horário de Atendimento</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Clock size={18} className="text-primary mt-0.5 flex-shrink-0" />
                 <div className="text-primary-foreground/70 text-sm">
-                   <p className="font-medium text-primary-foreground/90">
-                    Segunda a Sexta
-                  </p>
+                  <p className="font-medium text-primary-foreground/90">Segunda a Sexta</p>
                   <p>Horário agendado</p>
                 </div>
               </li>
@@ -131,16 +121,10 @@ const Footer = () => {
               © {currentYear} Fernanda Concolatto. Todos os direitos reservados.
             </p>
             <div className="flex gap-6">
-              <a
-                href="#"
-                className="text-primary-foreground/50 hover:text-primary-foreground text-sm"
-              >
+              <a href="#" className="text-primary-foreground/50 hover:text-primary-foreground text-sm">
                 Política de Privacidade
               </a>
-              <a
-                href="#"
-                className="text-primary-foreground/50 hover:text-primary-foreground text-sm"
-              >
+              <a href="#" className="text-primary-foreground/50 hover:text-primary-foreground text-sm">
                 Termos de Uso
               </a>
             </div>
