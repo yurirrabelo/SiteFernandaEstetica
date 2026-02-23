@@ -15,7 +15,7 @@ const Footer = () => {
               <p className="text-sm text-primary-foreground/60 tracking-widest uppercase">Estética & Holística</p>
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
-              Há 12 anos transformando beleza, corpo e alma. Estética avançada com abordagem holística.
+              Há 18 anos transformando beleza, corpo e alma. Estética avançada com abordagem holística.
             </p>
             <div className="flex gap-4">
               <a
@@ -86,12 +86,12 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <MessageCircle size={18} className="text-primary flex-shrink-0" />
                 <a
-                  href="https://wa.me/5547999445800"
+                  href="https://wa.me/5547999445800?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20tratamentos."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-foreground/70 hover:text-primary-foreground text-sm"
                 >
-                  (47) 99944-5800
+                  (47) 9 9944-5800
                 </a>
               </li>
             </ul>
@@ -118,15 +118,15 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-primary-foreground/50 text-sm text-center md:text-left">
-              © {currentYear} Fernanda Concolatto. Todos os direitos reservados.
+              © {currentYear} Fernanda Tagliari Concolatto. Todos os direitos reservados.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-primary-foreground/50 hover:text-primary-foreground text-sm">
+              {/* <a href="#" className="text-primary-foreground/50 hover:text-primary-foreground text-sm">
                 Política de Privacidade
               </a>
               <a href="#" className="text-primary-foreground/50 hover:text-primary-foreground text-sm">
                 Termos de Uso
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
