@@ -1,45 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
 
-const testimonials = [
-  {
-    name: "Mariana Santos",
-    role: "Cliente há 2 anos",
-    content:
-      "O Espaço Harmonia mudou completamente minha relação com autocuidado. Os tratamentos são maravilhosos e a equipe é extremamente profissional e acolhedora.",
-    rating: 5,
-    avatar: "MS",
-  },
-  {
-    name: "Carolina Mendes",
-    role: "Cliente há 1 ano",
-    content:
-      "Fiz um protocolo de rejuvenescimento facial e os resultados superaram minhas expectativas. Minha pele nunca esteve tão bonita!",
-    rating: 5,
-    avatar: "CM",
-  },
-  {
-    name: "Fernanda Lima",
-    role: "Cliente há 3 anos",
-    content:
-      "As sessões de massoterapia são um verdadeiro momento de renovação. Saio sempre mais leve e equilibrada. Recomendo de olhos fechados!",
-    rating: 5,
-    avatar: "FL",
-  },
-  {
-    name: "Juliana Costa",
-    role: "Cliente há 6 meses",
-    content:
-      "Ambiente impecável, atendimento nota 10 e resultados visíveis. Encontrei meu lugar para cuidar da beleza e do bem-estar.",
-    rating: 5,
-    avatar: "JC",
-  },
-];
+interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  content: string;
+  rating: number;
+  avatar: string;
+}
 
 const Testimonials = () => {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    supabase
+      .from("testimonials")
+      .select("*")
+      .eq("visible", true)
+      .order("sort_order")
+      .then(({ data }) => {
+        if (data && data.length > 0) setTestimonials(data as Testimonial[]);
+      });
+  }, []);
+
+  if (testimonials.length === 0) return null;
 
   const next = () => setCurrent((prev) => (prev + 1) % testimonials.length);
   const prev = () =>
@@ -78,32 +67,21 @@ const Testimonials = () => {
               transition={{ duration: 0.4 }}
               className="bg-card rounded-3xl p-8 md:p-12 shadow-elevated relative"
             >
-              {/* Quote icon */}
-              <Quote
-                size={48}
-                className="absolute top-6 right-6 text-primary/10"
-              />
+              <Quote size={48} className="absolute top-6 right-6 text-primary/10" />
 
-              {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {Array.from({ length: testimonials[current].rating }).map((_, i) => (
-                  <Star
-                    key={i}
-                    size={20}
-                    className="fill-accent text-accent"
-                  />
+                  <Star key={i} size={20} className="fill-accent text-accent" />
                 ))}
               </div>
 
-              {/* Content */}
               <blockquote className="text-lg md:text-xl text-foreground leading-relaxed mb-8 font-medium">
                 "{testimonials[current].content}"
               </blockquote>
 
-              {/* Author */}
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center text-primary-foreground font-semibold">
-                  {testimonials[current].avatar}
+                  {testimonials[current].avatar || testimonials[current].name.split(" ").map(n => n[0]).join("").slice(0, 2)}
                 </div>
                 <div>
                   <div className="font-display font-semibold text-foreground">
@@ -119,36 +97,21 @@ const Testimonials = () => {
 
           {/* Navigation */}
           <div className="flex items-center justify-center gap-4 mt-8">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={prev}
-              className="rounded-full border-primary/30 hover:bg-primary/5"
-            >
+            <Button variant="outline" size="icon" onClick={prev} className="rounded-full border-primary/30 hover:bg-primary/5">
               <ChevronLeft size={20} />
             </Button>
-
-            {/* Dots */}
             <div className="flex gap-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrent(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === current
-                      ? "w-8 bg-primary"
-                      : "bg-primary/30 hover:bg-primary/50"
+                    index === current ? "w-8 bg-primary" : "bg-primary/30 hover:bg-primary/50"
                   }`}
                 />
               ))}
             </div>
-
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={next}
-              className="rounded-full border-primary/30 hover:bg-primary/5"
-            >
+            <Button variant="outline" size="icon" onClick={next} className="rounded-full border-primary/30 hover:bg-primary/5">
               <ChevronRight size={20} />
             </Button>
           </div>
