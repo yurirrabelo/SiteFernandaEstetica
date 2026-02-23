@@ -14,20 +14,22 @@ const values = [
 ];
 
 const Sobre = () => {
-  const [siteImages, setSiteImages] = useState<Record<string, string | null>>({});
+  const [siteImages, setSiteImages] = useState<Record<string, { url: string | null; position: string }>>({});
 
   useEffect(() => {
     supabase.from("site_images").select("*").then(({ data }) => {
       if (data) {
-        const map: Record<string, string | null> = {};
-        data.forEach((img: any) => { map[img.section] = img.image_url; });
+        const map: Record<string, { url: string | null; position: string }> = {};
+        data.forEach((img: any) => { map[img.section] = { url: img.image_url, position: img.object_position || 'center' }; });
         setSiteImages(map);
       }
     });
   }, []);
 
-  const historyImage = siteImages["about_history"] || clinicInteriorFallback;
-  const founderImage = siteImages["about_founder"] || treatmentRoomFallback;
+  const historyImage = siteImages["about_history"]?.url || clinicInteriorFallback;
+  const historyPosition = siteImages["about_history"]?.position || "center";
+  const founderImage = siteImages["about_founder"]?.url || treatmentRoomFallback;
+  const founderPosition = siteImages["about_founder"]?.position || "center";
 
   return (
     <Layout>
@@ -56,7 +58,7 @@ const Sobre = () => {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
-              <img src={historyImage} alt="Interior do Espaço Harmonia" className="rounded-3xl shadow-floating w-full" />
+              <img src={historyImage} alt="Interior do Espaço Harmonia" className="rounded-3xl shadow-floating w-full max-h-[500px] object-cover" style={{ objectPosition: historyPosition }} />
               <div className="absolute -bottom-8 -left-8 bg-card p-6 rounded-2xl shadow-elevated max-w-xs">
                 <div className="text-3xl font-display font-semibold text-primary mb-1">12 Anos</div>
                 <p className="text-muted-foreground text-sm">Transformando beleza, corpo e alma</p>
@@ -90,7 +92,7 @@ const Sobre = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="order-2 lg:order-1">
-              <img src={founderImage} alt="Sala de Tratamento" className="rounded-3xl shadow-floating w-full max-h-[500px] object-cover" />
+              <img src={founderImage} alt="Sala de Tratamento" className="rounded-3xl shadow-floating w-full max-h-[500px] object-cover" style={{ objectPosition: founderPosition }} />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="order-1 lg:order-2 space-y-6">
               <span className="text-accent text-sm font-medium uppercase tracking-wider">Nossa Fundadora</span>

@@ -1,0 +1,1 @@
+ALTER TABLE public.site_images ADD COLUMN object_position text NOT NULL DEFAULT 'center';

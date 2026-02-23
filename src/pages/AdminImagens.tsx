@@ -17,6 +17,7 @@ interface SiteImage {
   image_url: string | null;
   alt_text: string;
   sort_order: number;
+  object_position: string;
 }
 
 const sectionLabels: Record<string, string> = {
@@ -54,6 +55,7 @@ const AdminImagens = () => {
       image_url: editing.image_url,
       alt_text: editing.alt_text,
       label: editing.label,
+      object_position: editing.object_position,
     }).eq("id", editing.id);
     if (error) { toast.error("Erro ao salvar"); return; }
     toast.success("Imagem atualizada!"); setDialogOpen(false); fetchData();
@@ -121,11 +123,40 @@ const AdminImagens = () => {
               <div>
                 <Label>Imagem</Label>
                 <div className="mt-1 space-y-2">
-                  {editing.image_url && <img src={editing.image_url} alt="Preview" className="w-full h-48 object-cover rounded-lg" />}
+                  {editing.image_url && (
+                    <div className="relative">
+                      <img src={editing.image_url} alt="Preview" className="w-full h-48 object-cover rounded-lg" style={{ objectPosition: editing.object_position }} />
+                    </div>
+                  )}
                   <label className="flex items-center gap-2 cursor-pointer bg-muted hover:bg-muted/80 rounded-lg px-4 py-3 text-sm">
                     <Upload size={16} />{uploading ? "Enviando..." : "Enviar nova imagem"}
                     <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" disabled={uploading} />
                   </label>
+                </div>
+              </div>
+              <div>
+                <Label>Posição da imagem</Label>
+                <div className="flex flex-wrap gap-2 mt-1">
+                  {[
+                    { value: "top", label: "Topo" },
+                    { value: "center", label: "Centro" },
+                    { value: "bottom", label: "Baixo" },
+                    { value: "left", label: "Esquerda" },
+                    { value: "right", label: "Direita" },
+                    { value: "top left", label: "Topo Esq." },
+                    { value: "top right", label: "Topo Dir." },
+                    { value: "bottom left", label: "Baixo Esq." },
+                    { value: "bottom right", label: "Baixo Dir." },
+                  ].map(pos => (
+                    <button
+                      key={pos.value}
+                      type="button"
+                      onClick={() => setEditing({ ...editing, object_position: pos.value })}
+                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${editing.object_position === pos.value ? "gradient-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}
+                    >
+                      {pos.label}
+                    </button>
+                  ))}
                 </div>
               </div>
               <div className="flex gap-2 pt-2">
