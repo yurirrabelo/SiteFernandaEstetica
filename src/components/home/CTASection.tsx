@@ -18,7 +18,7 @@ const CTASection = () => {
           alt="Sala de tratamento"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-foreground/85" />
+        <div className="absolute inset-0 bg-black/80 dark:bg-black/85" />
       </div>
 
       <div className="container relative mx-auto px-4">
