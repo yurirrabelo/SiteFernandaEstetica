@@ -75,9 +75,9 @@ const Sobre = () => {
                   então sigo me aperfeiçoando com amor e propósito.
                 </p>
                 <p>
-                  Comecei minha jornada em Curitiba, em clínicas de referência, e quando voltei para SC, senti que era
-                  hora de criar algo meu. Assim nasceu minha própria clínica, unindo conhecimento técnico com o poder
-                  das terapias e do autodesenvolvimento 🌿💆‍♀️
+                  Comecei minha jornada em Curitiba, em clínicas de referência, e quando voltei para Santa Catarina,
+                  senti que era hora de criar algo meu. Assim nasceu minha própria clínica, unindo conhecimento técnico
+                  com o poder das terapias e do autodesenvolvimento 🌿💆‍♀️
                 </p>
                 <p>
                   Amo o que faço e acredito no cuidado integral — físico, emocional, mental e espiritual. Sou apaixonada
