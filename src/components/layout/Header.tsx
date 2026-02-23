@@ -84,11 +84,8 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button + Dark Mode */}
+          {/* Dark Mode + CTA Button */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button onClick={openWhatsApp} className="gradient-primary shadow-primary">
-              Agende sua Consulta
-            </Button>
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="p-2 rounded-full text-foreground/80 hover:text-primary hover:bg-muted transition-colors"
@@ -96,6 +93,9 @@ const Header = () => {
             >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
             </button>
+            <Button onClick={openWhatsApp} className="gradient-primary shadow-primary">
+              Agende sua Consulta
+            </Button>
           </div>
 
           {/* Mobile: Dark Mode + Menu Button */}
