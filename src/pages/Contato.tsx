@@ -74,10 +74,10 @@ const Contato = () => {
   const onSubmit = (data: ContactFormData) => {
     // Build WhatsApp message
     const whatsappMessage = encodeURIComponent(
-      `Olá! Sou ${data.name}.\n\n` +
-        `E-mail: ${data.email}\n` +
-        `WhatsApp: ${data.whatsapp}\n\n` +
-        `Mensagem: ${data.message}`,
+      `Olá! Me chamo ${data.name}, e vim pelo site.\n` +
+        `Mensagem: ${data.message}\n\n` +
+        `E-mail: ${data.email}` +
+        `WhatsApp: ${data.whatsapp}`,
     );
 
     // Open WhatsApp
