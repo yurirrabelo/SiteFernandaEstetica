@@ -14,6 +14,120 @@ export type Database = {
   }
   public: {
     Tables: {
+      before_after: {
+        Row: {
+          after_image_url: string | null
+          before_image_url: string | null
+          created_at: string
+          description: string
+          id: string
+          sessions: string
+          sort_order: number
+          treatment: string
+          updated_at: string
+          visible: boolean
+        }
+        Insert: {
+          after_image_url?: string | null
+          before_image_url?: string | null
+          created_at?: string
+          description?: string
+          id?: string
+          sessions?: string
+          sort_order?: number
+          treatment: string
+          updated_at?: string
+          visible?: boolean
+        }
+        Update: {
+          after_image_url?: string | null
+          before_image_url?: string | null
+          created_at?: string
+          description?: string
+          id?: string
+          sessions?: string
+          sort_order?: number
+          treatment?: string
+          updated_at?: string
+          visible?: boolean
+        }
+        Relationships: []
+      }
+      site_images: {
+        Row: {
+          alt_text: string
+          created_at: string
+          id: string
+          image_url: string | null
+          label: string
+          section: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          alt_text?: string
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          label?: string
+          section: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          alt_text?: string
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          label?: string
+          section?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          avatar: string
+          content: string
+          created_at: string
+          id: string
+          name: string
+          rating: number
+          role: string
+          sort_order: number
+          treatment: string
+          updated_at: string
+          visible: boolean
+        }
+        Insert: {
+          avatar?: string
+          content: string
+          created_at?: string
+          id?: string
+          name: string
+          rating?: number
+          role?: string
+          sort_order?: number
+          treatment?: string
+          updated_at?: string
+          visible?: boolean
+        }
+        Update: {
+          avatar?: string
+          content?: string
+          created_at?: string
+          id?: string
+          name?: string
+          rating?: number
+          role?: string
+          sort_order?: number
+          treatment?: string
+          updated_at?: string
+          visible?: boolean
+        }
+        Relationships: []
+      }
       treatments: {
         Row: {
           benefits: string[]
