@@ -1,0 +1,1 @@
+ALTER TABLE public.treatments ADD COLUMN color text NOT NULL DEFAULT 'primary';
