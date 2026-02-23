@@ -47,13 +47,13 @@ const Benefits = () => {
         >
           <span className="inline-flex items-center gap-2 text-secondary text-sm font-medium uppercase tracking-wider mb-4">
             <Award size={16} />
-            Por que nos escolher
+            Por que Fernanda Concolatto
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground mb-4">
             Diferenciais que Fazem a Diferença
           </h2>
           <p className="text-muted-foreground">
-            Compromisso em proporcionar uma experiência excepcional em cada visita.
+            Com o compromisso de proporcionar uma experiência excepcional em cada visita
           </p>
         </motion.div>
 
@@ -70,12 +70,8 @@ const Benefits = () => {
               <div className="w-14 h-14 rounded-xl gradient-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <benefit.icon size={24} className="text-secondary-foreground" />
               </div>
-              <h3 className="text-lg font-display font-semibold text-foreground mb-2">
-                {benefit.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {benefit.description}
-              </p>
+              <h3 className="text-lg font-display font-semibold text-foreground mb-2">{benefit.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
             </motion.div>
           ))}
         </div>
