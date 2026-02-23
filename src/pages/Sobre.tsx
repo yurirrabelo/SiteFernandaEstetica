@@ -90,7 +90,7 @@ const Sobre = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="order-2 lg:order-1">
-              <img src={founderImage} alt="Sala de Tratamento" className="rounded-3xl shadow-floating w-full" />
+              <img src={founderImage} alt="Sala de Tratamento" className="rounded-3xl shadow-floating w-full max-h-[500px] object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="order-1 lg:order-2 space-y-6">
               <span className="text-accent text-sm font-medium uppercase tracking-wider">Nossa Fundadora</span>
