@@ -53,10 +53,15 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <div className="flex items-center gap-3">
-              <img src={logoFer} alt="Logo Fernanda" className="w-10 h-10 rounded-full object-cover" />
-              <span className="font-display text-xl sm:text-2xl font-semibold text-primary">
-                Fernanda Estética e Holística
-              </span>
+              <img src={logoFer} alt="Logo Fernanda Concolatto" className="w-10 h-10 rounded-full object-cover" />
+              <div className="flex flex-col">
+                <span className="font-display text-2xl font-semibold text-primary">
+                  Fernanda Concolatto
+                </span>
+                <span className="text-xs text-muted-foreground tracking-widest uppercase">
+                  Estética & Holística
+                </span>
+              </div>
             </div>
           </Link>
 
