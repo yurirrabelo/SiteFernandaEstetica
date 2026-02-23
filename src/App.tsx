@@ -19,6 +19,7 @@ import AdminAntesDepois from "./pages/AdminAntesDepois";
 import AdminImagens from "./pages/AdminImagens";
 import AdminContatos from "./pages/AdminContatos";
 import AdminSenha from "./pages/AdminSenha";
+import AdminResetPassword from "./pages/AdminResetPassword";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
               <Route path="/admin/imagens" element={<AdminImagens />} />
               <Route path="/admin/contatos" element={<AdminContatos />} />
               <Route path="/admin/senha" element={<AdminSenha />} />
+              <Route path="/admin/reset-password" element={<AdminResetPassword />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
