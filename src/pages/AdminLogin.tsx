@@ -23,7 +23,7 @@ const AdminLogin = () => {
 
   const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault();
-    const resetEmail = forgotEmail.includes("@") ? forgotEmail : `${forgotEmail}@admin.com`;
+    const resetEmail = forgotEmail.includes("@") ? forgotEmail : `${forgotEmail}@gmail.com`;
     setForgotLoading(true);
     const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
       redirectTo: `${window.location.origin}/admin/reset-password`,
@@ -43,7 +43,7 @@ const AdminLogin = () => {
     setError("");
 
     // Map username to email
-    const loginEmail = email.includes("@") ? email : `${email}@admin.com`;
+    const loginEmail = email.includes("@") ? email : `${email}@gmail.com`;
     const { error: err } = await signIn(loginEmail, password);
 
     if (err) {
