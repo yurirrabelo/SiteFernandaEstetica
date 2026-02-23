@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
 import {
   MessageCircle as MessageCircleIcon,
   Mail,
@@ -71,12 +72,24 @@ const Contato = () => {
     },
   });
 
-  const onSubmit = (data: ContactFormData) => {
+  const onSubmit = async (data: ContactFormData) => {
+    // Save lead to database
+    try {
+      await supabase.from("contacts").insert({
+        name: data.name,
+        email: data.email,
+        whatsapp: data.whatsapp,
+        message: data.message,
+      });
+    } catch {
+      // silently continue — WhatsApp redirect is the priority
+    }
+
     // Build WhatsApp message
     const whatsappMessage = encodeURIComponent(
       `Olá! Me chamo ${data.name}, e vim pelo site.\n` +
         `Mensagem: ${data.message}\n\n` +
-        `E-mail: ${data.email}` +
+        `E-mail: ${data.email}\n` +
         `WhatsApp: ${data.whatsapp}`,
     );
 
