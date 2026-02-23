@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/components/ThemeProvider";
 import logoFer from "@/assets/logo-fer.png";
 
 const navLinks = [
@@ -19,6 +20,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,15 +53,10 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <div className="flex items-center gap-3">
-              <img src={logoFer} alt="Logo Fernanda Concolatto" className="w-10 h-10 rounded-full object-cover" />
-              <div className="flex flex-col">
-                <span className="font-display text-2xl font-semibold text-primary">
-                  Fernanda Concolatto
-                </span>
-                <span className="text-xs text-muted-foreground tracking-widest uppercase">
-                  Estética & Holística
-                </span>
-              </div>
+              <img src={logoFer} alt="Logo Fernanda" className="w-10 h-10 rounded-full object-cover" />
+              <span className="font-display text-xl sm:text-2xl font-semibold text-primary">
+                Fernanda Estética e Holística
+              </span>
             </div>
           </Link>
 
@@ -87,21 +84,37 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* CTA Button + Dark Mode */}
+          <div className="hidden lg:flex items-center gap-3">
             <Button onClick={openWhatsApp} className="gradient-primary shadow-primary">
               Agende sua Consulta
             </Button>
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="p-2 rounded-full text-foreground/80 hover:text-primary hover:bg-muted transition-colors"
+              aria-label="Alternar tema"
+            >
+              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-foreground"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile: Dark Mode + Menu Button */}
+          <div className="flex lg:hidden items-center gap-2">
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="p-2 rounded-full text-foreground/80 hover:text-primary hover:bg-muted transition-colors"
+              aria-label="Alternar tema"
+            >
+              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 text-foreground"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
