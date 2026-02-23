@@ -53,7 +53,7 @@ const Benefits = () => {
             Diferenciais que Fazem a Diferença
           </h2>
           <p className="text-muted-foreground">
-            Nosso compromisso é proporcionar uma experiência excepcional em cada visita.
+            Compromisso em proporcionar uma experiência excepcional em cada visita.
           </p>
         </motion.div>
 

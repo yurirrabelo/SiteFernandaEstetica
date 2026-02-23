@@ -70,13 +70,13 @@ const FeaturedTreatments = () => {
         >
           <span className="inline-flex items-center gap-2 text-primary text-sm font-medium uppercase tracking-wider mb-4">
             <Sun size={16} />
-            Nossos Serviços
+            Serviços
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground mb-4">
             Tratamentos que Transformam
           </h2>
           <p className="text-muted-foreground">
-            Oferecemos uma combinação única de estética avançada e terapias
+            Uma combinação única de estética avançada e terapias
             holísticas para cuidar de você por completo.
           </p>
         </motion.div>
