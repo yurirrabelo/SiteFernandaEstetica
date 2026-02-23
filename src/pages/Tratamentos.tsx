@@ -49,6 +49,7 @@ interface Treatment {
   duration: string;
   benefits: string[];
   icon: string;
+  color: string;
   image_url: string | null;
   visible: boolean;
   sort_order: number;
@@ -161,11 +162,11 @@ const Tratamentos = () => {
                         <div className="absolute top-4 left-4">
                           <div
                             className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                              treatment.category === "facial"
-                                ? "bg-primary/90 text-primary-foreground"
-                                : treatment.category === "corporal"
+                              treatment.color === "secondary"
                                 ? "bg-secondary/90 text-secondary-foreground"
-                                : "bg-accent/90 text-accent-foreground"
+                                : treatment.color === "accent"
+                                ? "bg-accent/90 text-accent-foreground"
+                                : "bg-primary/90 text-primary-foreground"
                             }`}
                           >
                             <IconComponent size={20} />

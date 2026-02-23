@@ -132,6 +132,7 @@ export type Database = {
         Row: {
           benefits: string[]
           category: string
+          color: string
           created_at: string
           description: string
           duration: string
@@ -146,6 +147,7 @@ export type Database = {
         Insert: {
           benefits?: string[]
           category: string
+          color?: string
           created_at?: string
           description: string
           duration?: string
@@ -160,6 +162,7 @@ export type Database = {
         Update: {
           benefits?: string[]
           category?: string
+          color?: string
           created_at?: string
           description?: string
           duration?: string

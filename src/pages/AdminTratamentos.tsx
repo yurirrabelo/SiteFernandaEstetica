@@ -25,6 +25,7 @@ interface Treatment {
   duration: string;
   benefits: string[];
   icon: string;
+  color: string;
   image_url: string | null;
   visible: boolean;
   sort_order: number;
@@ -32,11 +33,23 @@ interface Treatment {
 
 const emptyTreatment: Omit<Treatment, "id"> = {
   title: "", description: "", category: "facial", duration: "60 min",
-  benefits: [], icon: "Sparkles", image_url: null, visible: true, sort_order: 0,
+  benefits: [], icon: "Sparkles", color: "primary", image_url: null, visible: true, sort_order: 0,
 };
 
-const iconOptions = ["Sparkles", "Sun", "Droplets", "Flower2", "Heart", "Leaf"];
+const iconOptions = [
+  { value: "Sparkles", label: "Brilhos" },
+  { value: "Sun", label: "Sol" },
+  { value: "Droplets", label: "Gotas" },
+  { value: "Flower2", label: "Flor" },
+  { value: "Heart", label: "Coração" },
+  { value: "Leaf", label: "Folha" },
+];
 const categoryLabels: Record<string, string> = { facial: "Facial", corporal: "Corporal", holistico: "Holístico" };
+const colorOptions = [
+  { value: "primary", label: "Lilás", class: "bg-primary" },
+  { value: "secondary", label: "Verde", class: "bg-secondary" },
+  { value: "accent", label: "Dourado", class: "bg-accent" },
+];
 
 const AdminTratamentos = () => {
   const { user, isAdmin, loading: authLoading, signOut } = useAuth();
@@ -78,7 +91,8 @@ const AdminTratamentos = () => {
     const payload = {
       title: editingTreatment.title, description: editingTreatment.description,
       category: editingTreatment.category, duration: editingTreatment.duration,
-      benefits, icon: editingTreatment.icon, image_url: editingTreatment.image_url,
+      benefits, icon: editingTreatment.icon, color: editingTreatment.color,
+      image_url: editingTreatment.image_url,
       visible: editingTreatment.visible, sort_order: editingTreatment.sort_order,
     };
     if (isNew) {
@@ -182,7 +196,25 @@ const AdminTratamentos = () => {
                 <div><Label>Categoria</Label><Select value={editingTreatment.category} onValueChange={v => setEditingTreatment({ ...editingTreatment, category: v })}><SelectTrigger className="mt-1"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="facial">Facial</SelectItem><SelectItem value="corporal">Corporal</SelectItem><SelectItem value="holistico">Holístico</SelectItem></SelectContent></Select></div>
                 <div><Label>Duração</Label><Input value={editingTreatment.duration} onChange={e => setEditingTreatment({ ...editingTreatment, duration: e.target.value })} placeholder="60 min" className="mt-1" /></div>
               </div>
-              <div><Label>Ícone</Label><Select value={editingTreatment.icon} onValueChange={v => setEditingTreatment({ ...editingTreatment, icon: v })}><SelectTrigger className="mt-1"><SelectValue /></SelectTrigger><SelectContent>{iconOptions.map(icon => <SelectItem key={icon} value={icon}>{icon}</SelectItem>)}</SelectContent></Select></div>
+              <div><Label>Ícone</Label>
+                <div className="flex items-center gap-3 mt-1">
+                  <Select value={editingTreatment.icon} onValueChange={v => setEditingTreatment({ ...editingTreatment, icon: v })}>
+                    <SelectTrigger className="flex-1"><SelectValue /></SelectTrigger>
+                    <SelectContent>{iconOptions.map(icon => <SelectItem key={icon.value} value={icon.value}>{icon.label}</SelectItem>)}</SelectContent>
+                  </Select>
+                  <div className="flex gap-1.5">
+                    {colorOptions.map(c => (
+                      <button
+                        key={c.value}
+                        type="button"
+                        title={c.label}
+                        onClick={() => setEditingTreatment({ ...editingTreatment, color: c.value })}
+                        className={`w-8 h-8 rounded-full ${c.class} transition-all ${editingTreatment.color === c.value ? "ring-2 ring-offset-2 ring-foreground scale-110" : "opacity-60 hover:opacity-100"}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
               <div><Label>Benefícios (separados por vírgula)</Label><Input value={benefitsText} onChange={e => setBenefitsText(e.target.value)} placeholder="Pele renovada, Poros desobstruídos" className="mt-1" /></div>
               <div>
                 <Label>Imagem</Label>
