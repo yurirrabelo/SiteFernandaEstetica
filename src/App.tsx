@@ -13,6 +13,10 @@ import AntesDepois from "./pages/AntesDepois";
 import Contato from "./pages/Contato";
 import AdminLogin from "./pages/AdminLogin";
 import Admin from "./pages/Admin";
+import AdminTratamentos from "./pages/AdminTratamentos";
+import AdminDepoimentos from "./pages/AdminDepoimentos";
+import AdminAntesDepois from "./pages/AdminAntesDepois";
+import AdminImagens from "./pages/AdminImagens";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +38,10 @@ const App = () => (
               <Route path="/contato" element={<Contato />} />
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/admin/tratamentos" element={<AdminTratamentos />} />
+              <Route path="/admin/depoimentos" element={<AdminDepoimentos />} />
+              <Route path="/admin/antes-depois" element={<AdminAntesDepois />} />
+              <Route path="/admin/imagens" element={<AdminImagens />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
