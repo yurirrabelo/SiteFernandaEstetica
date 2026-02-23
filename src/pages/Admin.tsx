@@ -9,6 +9,8 @@ import {
   Image,
   ArrowRight,
   Repeat,
+  Users,
+  KeyRound,
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
@@ -41,6 +43,20 @@ const adminSections = [
     icon: Image,
     path: "/admin/imagens",
     color: "from-primary to-secondary",
+  },
+  {
+    title: "Contatos / Leads",
+    description: "Veja as mensagens recebidas pelo formulário de contato",
+    icon: Users,
+    path: "/admin/contatos",
+    color: "from-secondary to-primary",
+  },
+  {
+    title: "Alterar Senha",
+    description: "Mude sua senha de acesso ao painel",
+    icon: KeyRound,
+    path: "/admin/senha",
+    color: "from-muted-foreground/50 to-muted-foreground/30",
   },
 ];
 
