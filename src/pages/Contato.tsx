@@ -64,8 +64,8 @@ const contactInfo = [
   {
     icon: MessageCircleIcon,
     title: "WhatsApp",
-    content: "(47) 99445-8005",
-    action: "https://wa.me/5547994458005",
+    content: "(47) 99944-5800",
+    action: "https://wa.me/5547999445800?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20tratamentos.",
   },
   {
     icon: Clock,
@@ -99,7 +99,7 @@ const Contato = () => {
     );
 
     // Open WhatsApp
-    window.open(`https://wa.me/5547994458005?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/5547999445800?text=${whatsappMessage}`, "_blank");
 
     setIsSubmitted(true);
     toast({

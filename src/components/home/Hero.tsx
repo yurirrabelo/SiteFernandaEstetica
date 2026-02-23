@@ -15,8 +15,8 @@ const Hero = () => {
   }, []);
 
   const openWhatsApp = () => {
-    const message = encodeURIComponent("Olá! Gostaria de agendar um horário.");
-    window.open(`https://wa.me/5547994458005?text=${message}`, "_blank");
+    const message = encodeURIComponent("Olá! Vim pelo site e gostaria de saber mais sobre os tratamentos.");
+    window.open(`https://wa.me/5547999445800?text=${message}`, "_blank");
   };
 
   return (

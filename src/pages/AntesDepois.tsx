@@ -28,8 +28,8 @@ const AntesDepois = () => {
   }, []);
 
   const openWhatsApp = (treatmentName: string) => {
-    const message = encodeURIComponent(`Olá! Vi os resultados do tratamento "${treatmentName}" e gostaria de saber mais.`);
-    window.open(`https://wa.me/5547994458005?text=${message}`, "_blank");
+    const message = encodeURIComponent(`Olá! Vim pelo site e gostaria de saber mais sobre os tratamentos. Vi os resultados de: ${treatmentName}`);
+    window.open(`https://wa.me/5547999445800?text=${message}`, "_blank");
   };
 
   return (
