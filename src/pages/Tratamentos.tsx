@@ -79,9 +79,9 @@ const Tratamentos = () => {
 
   const openWhatsApp = (treatmentName: string) => {
     const message = encodeURIComponent(
-      `Olá! Gostaria de saber mais sobre o tratamento: ${treatmentName}`
+      `Olá! Vim pelo site e gostaria de saber mais sobre os tratamentos. Tratamento: ${treatmentName}`
     );
-    window.open(`https://wa.me/5547994458005?text=${message}`, "_blank");
+    window.open(`https://wa.me/5547999445800?text=${message}`, "_blank");
   };
 
   return (
