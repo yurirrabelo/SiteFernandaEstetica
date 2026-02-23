@@ -39,7 +39,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Endereço",
-    content: "Rua 248, 322, sala 205\nMeia Praia - Itapema, SC, 88220",
+    content: "Rua 248, 322, sala 205 Meia Praia - Itapema, SC, 88220",
     action: null,
   },
   {
