@@ -60,6 +60,7 @@ const Hero = () => {
             className="text-lg text-muted-foreground mb-8 leading-relaxed"
           >
             Estética avançada com abordagem holística. Pós Operatório, Botox, Beleza Facial e Corporal, Terapias.
+            <br />
             Cuidado integral para corpo e alma.
           </motion.p>
 
