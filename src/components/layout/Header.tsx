@@ -59,7 +59,7 @@ const Header = () => {
                   Fernanda Concolatto
                 </span>
                 <span className="text-xs text-muted-foreground tracking-widest uppercase">
-                  Estética & Holística
+                  Estética e Holística
                 </span>
               </div>
             </div>

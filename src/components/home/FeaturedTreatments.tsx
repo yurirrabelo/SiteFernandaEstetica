@@ -95,52 +95,53 @@ const FeaturedTreatments = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-card rounded-2xl overflow-hidden shadow-elevated hover:shadow-floating transition-all duration-300"
               >
-                {/* Image */}
-                <div className="relative h-56 overflow-hidden">
-                  <img
-                    src={image}
-                    alt={treatment.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    style={{ objectPosition: position }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div
-                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 ${
-                      treatment.color === "primary"
-                        ? "bg-primary/10 text-primary"
-                        : treatment.color === "secondary"
-                        ? "bg-secondary/10 text-secondary"
-                        : "bg-accent/10 text-accent"
-                    }`}
-                  >
-                    <treatment.icon size={24} />
+                <Link
+                  to="/tratamentos"
+                  className="group relative bg-card rounded-2xl overflow-hidden shadow-elevated hover:shadow-floating transition-all duration-300 block"
+                >
+                  {/* Image */}
+                  <div className="relative h-56 overflow-hidden">
+                    <img
+                      src={image}
+                      alt={treatment.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      style={{ objectPosition: position }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
                   </div>
 
-                  <h3 className="text-xl font-display font-semibold text-foreground mb-2">
-                    {treatment.title}
-                  </h3>
+                  {/* Content */}
+                  <div className="p-6">
+                    <div
+                      className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 ${
+                        treatment.color === "primary"
+                          ? "bg-primary/10 text-primary"
+                          : treatment.color === "secondary"
+                          ? "bg-secondary/10 text-secondary"
+                          : "bg-accent/10 text-accent"
+                      }`}
+                    >
+                      <treatment.icon size={24} />
+                    </div>
 
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                    {treatment.description}
-                  </p>
+                    <h3 className="text-xl font-display font-semibold text-foreground mb-2">
+                      {treatment.title}
+                    </h3>
 
-                  <Link
-                    to="/tratamentos"
-                    className="inline-flex items-center text-sm font-medium text-primary hover:text-primary-dark transition-colors group/link"
-                  >
-                    Saiba mais
-                    <ArrowRight
-                      size={16}
-                      className="ml-1 group-hover/link:translate-x-1 transition-transform"
-                    />
-                  </Link>
-                </div>
+                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                      {treatment.description}
+                    </p>
+
+                    <span className="inline-flex items-center text-sm font-medium text-primary hover:text-primary-dark transition-colors group/link">
+                      Saiba mais
+                      <ArrowRight
+                        size={16}
+                        className="ml-1 group-hover:translate-x-1 transition-transform"
+                      />
+                    </span>
+                  </div>
+                </Link>
               </motion.div>
             );
           })}
