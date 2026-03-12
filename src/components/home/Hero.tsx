@@ -59,7 +59,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg text-muted-foreground mb-8 leading-relaxed"
           >
-            Estética avançada com abordagem holística. Pós Operatório, Botox, Beleza Facial e Corporal, Terapias.
+            Estética avançada com abordagem holística. Pós operatório, botox, beleza facial e corporal, terapias.
             <br />
             Cuidado integral para corpo e alma.
           </motion.p>
