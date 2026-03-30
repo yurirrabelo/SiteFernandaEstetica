@@ -27,6 +27,12 @@ Deno.serve(async (req) => {
 
     if (existing) {
       userId = existing.id;
+      const { error } = await supabaseAdmin.auth.admin.updateUserById(userId, {
+        email,
+        password,
+        email_confirm: true,
+      });
+      if (error) throw error;
     } else {
       const { data, error } = await supabaseAdmin.auth.admin.createUser({
         email,
